@@ -1,10 +1,8 @@
 # 🐻 Bearflow: Workflow Orchestration Playground
 
-Welcome to **Bearflow**, where pipelines roam free and tasks get tamed.  
-This repo is a mini playground for exploring different **workflow management systems** — from the classics to the shiny new ones.  
+This repo is a mini playground for exploring different **workflow management systems**.
 
-It's not production. It's **proof-of-concept territory**.  
-Bring snacks, curiosity, and maybe Redis.  
+It's not production. It's **proof-of-concept territory**.
 
 ## 🗺️ What's Inside
 
@@ -12,12 +10,12 @@ Each folder/file is a tiny POC showing a 2-task workflow:
 
 Task A → Task B → "Flow complete!"
 
-| Framework | Filename | Vibe | Notes |
-|------------|-----------|------|-------|
-| 🌀 **Prefect** | `bearflow_prefect.py` | smooth, modern | Pythonic, easy orchestration |
-| ⚙️ **Celery** | `celery_den.py` | old reliable | Great for async queues, needs broker |
-| 🧩 **Dagster** | `dagster_den.py` | data-pipeline friendly | strong typing + observability |
-| ⏳ **Temporal** | `temporal_cave.py` | next-gen vibes | durable, resilient workflows |
+| Framework | Filename |
+|------------|-----------|
+| 🌀 **Prefect** | `bearflow_prefect.py` |
+| ⚙️ **Celery** | `celery_den.py` |
+| 🧩 **Dagster** | `dagster_den.py` |
+| ⏳ **Temporal** | `temporal_cave.py` |
 
 ## 🧰 Setup
 
@@ -53,7 +51,7 @@ redis-server
 celery -A celery_den worker --loglevel=info
 
 # Terminal 2: trigger tasks
-python -c "from celery_den import task_a, task_b; task_a.delay(); task_b.delay()"
+uv run celery_trigger.py
 ```
 
 ### Dagster
@@ -70,20 +68,10 @@ temporal server start-dev
 
 # Terminal 2: Run the worker
 uv run temporal_cave.py
-# You should see: Starting Temporal worker...
 
 # Terminal 3: Trigger the workflow
 uv run temporal_trigger.py
 ```
-
-## 🧠 Quick Comparison
-
-| Framework    | Setup Effort | Learning Curve | Maintenance   | Scalability   | Bear's Hot Take                                    |
-| ------------ | ------------ | -------------- | ------------- | ------------- | -------------------------------------------------- |
-| **Prefect**  | ⭐⭐           | 🧩 Smooth      | 🌿 Low        | 🚀 High       | *Feels like the future of "just works" workflows*  |
-| **Celery**   | ⭐            | 🪓 Moderate    | 🧱 Medium     | 🚀 High       | *Still the champ for simple queues, but dusty*     |
-| **Dagster**  | ⭐⭐           | 📈 Steep       | 🌱 Manageable | 🚀 High       | *Data teams love it — structured and robust*       |
-| **Temporal** | ⭐⭐⭐          | 🧩 Medium      | 🌿 Low        | 🚀🚀🚀 Insane | *Resilient, future-proof, but needs infra love*    |
 
 ## 🪄 Future Ideas
 
@@ -96,10 +84,6 @@ uv run temporal_trigger.py
 
 "Workflows are just glorified to-do lists for machines."  
 — Bear, probably
-
-This repo exists so you can explore what feels **right-sized** for your team — whether it's a tiny Python job runner or a full-blown orchestrator.
-
-No pressure, no vendor lock-in, just vibes.
 
 **License:** MIT  
 **Maintainer:** 🧸 Bear  
