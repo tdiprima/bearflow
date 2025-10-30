@@ -53,7 +53,7 @@ redis-server
 celery -A celery_den worker --loglevel=info
 
 # Terminal 2: trigger tasks
-python -c "from celery_den import task_a, task_b; task_a.delay(); task_b.delay()"
+uv run celery_trigger.py
 ```
 
 ### Dagster
@@ -70,7 +70,6 @@ temporal server start-dev
 
 # Terminal 2: Run the worker
 uv run temporal_cave.py
-# You should see: Starting Temporal worker...
 
 # Terminal 3: Trigger the workflow
 uv run temporal_trigger.py
