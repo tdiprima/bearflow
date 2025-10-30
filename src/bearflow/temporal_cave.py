@@ -1,3 +1,10 @@
+"""
+Temporal durable workflow implementation with async activities.
+
+Defines BearFlow workflow that executes task_a and task_b as activities with 10s timeouts.
+Requires running Temporal server: temporal server start-dev
+Start worker: python temporal_cave.py
+"""
 # ⏳ Temporal
 from datetime import timedelta
 

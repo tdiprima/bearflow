@@ -1,3 +1,9 @@
+"""
+Dagster pipeline with two sequential operations.
+
+Defines a job (bear_pipeline) that executes task_a and task_b as ops.
+Run with: python pipeline_paws.py or via dagster dev UI
+"""
 # 🧩 Dagster
 from dagster import job, op
 
