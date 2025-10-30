@@ -43,6 +43,11 @@ python bearflow_prefect.py
 ### Celery
 
 ```bash
+# Terminal A: start redis
+./redisctl.sh up
+# Or
+redis-server
+
 # Terminal 1: start worker
 celery -A celery_den worker --loglevel=info
 
