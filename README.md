@@ -17,7 +17,6 @@ Task A → Task B → "Flow complete!"
 | 🌀 **Prefect** | `bearflow_prefect.py` | smooth, modern | Pythonic, easy orchestration |
 | ⚙️ **Celery** | `celery_den.py` | old reliable | Great for async queues, needs broker |
 | 🧩 **Dagster** | `pipeline_paws.py` | data-pipeline friendly | strong typing + observability |
-| 🪶 **Airflow-lite** | `aircub_dag.py` | enterprise throwback | Big overhead, good scheduler |
 | ⏳ **Temporal** | `temporal_cave.py` | next-gen vibes | durable, resilient workflows |
 
 ## 🧰 Setup
@@ -27,7 +26,7 @@ If you're using [`uv`](https://github.com/astral-sh/uv) (and you should), grab t
 ### Install them all
 
 ```bash
-uv add prefect celery dagster apache-airflow temporalio redis
+uv add prefect celery dagster temporalio redis
 ```
 
 ## 🧪 Running the POCs
@@ -61,13 +60,6 @@ python -c "from celery_den import task_a, task_b; task_a.delay(); task_b.delay()
 python pipeline_paws.py
 ```
 
-### Airflow-lite
-
-```bash
-# Place `aircub_dag.py` inside your Airflow `dags/` directory
-airflow dags trigger aircub_dag
-```
-
 ### Temporal
 
 ```bash
@@ -89,7 +81,6 @@ python temporal_trigger.py
 | **Prefect**  | ⭐⭐           | 🧩 Smooth      | 🌿 Low        | 🚀 High       | *Feels like the future of "just works" workflows*  |
 | **Celery**   | ⭐            | 🪓 Moderate    | 🧱 Medium     | 🚀 High       | *Still the champ for simple queues, but dusty*     |
 | **Dagster**  | ⭐⭐           | 📈 Steep       | 🌱 Manageable | 🚀 High       | *Data teams love it — structured and robust*       |
-| **Airflow**  | ⭐⭐⭐          | 🧠 Chunky      | 🧱 Heavy      | 🚀 Very high  | *Powerful, but feels like managing a small planet* |
 | **Temporal** | ⭐⭐⭐          | 🧩 Medium      | 🌿 Low        | 🚀🚀🚀 Insane | *Resilient, future-proof, but needs infra love*    |
 
 ## 🪄 Future Ideas
